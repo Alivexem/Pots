@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alive Game Pots and Pans</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carton+Slab&display=swap">
+<style>
+    
+  body {
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Carton Slab', serif;
+  }
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: pink; /* Light purple background color */
+    z-index: -1; /* Ensure the background is behind other content */
+  }
+  .slash-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+     z-index: 1;
+  }
+  .slash {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom right, red, orange);
+    transform-origin: 0 100%;
+    z-index: 1;
+  }
+  .slash:nth-child(odd) {
+    transform: rotate(45deg);
+  }
+  .slash:nth-child(even) {
+    transform: rotate(-45deg);
+  }
+  .slash:nth-child(1) {
+    top: -100px;
+    left: -100px;
+  }
+  .slash:nth-child(2) {
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+  }
+  .slash:nth-child(3) {
+    top: calc(100% - 100px);
+    left: calc(100% - 100px);
+  }
+  
+  .head{
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      
+      font-size: 40px;
+      margin-bottom: 60px;
+      margin-top: 40px;
+      font-family: 'Roboto Slab', serif;
+  }
+  .image{
+      position: relative;
+      z-index: 2;
+      top: 40%;
+      left: 5%;
+  }
+  .image2{
+      position: absolute;
+      z-index: 2;
+      top: 30%;
+      left: 27%;
+  }
+  .image3{
+      position: absolute;
+      z-index: 2;
+      top: 12%;
+      left: 67%;
+  }
+  h1, h2, p, .inputs, .block, button, .butBlock, .custom-shape{
+      position: relative;
+      z-index: 3;
+  }
+ 
+  h1{
+      font-size: 24px;
+      color: black;
+      
+  }
+  .butBlock{
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      background-color: snow;
+      height: 820px;
+      border-radius: 12px;
+      margin-top: 30px;
+      width: 90%;
+  }
+  .block{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  p{
+      font-size: 18px;
+      text-align: center;
+  }
+  button{
+      height: 35px;
+      width: 170px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: orange;
+  }
+  button:active{
+      background-color: gray;
+  }
+ 
+</style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="slash-container">
+    <div class="slash"></div>
+    <div class="slash"></div>
+    <div class="slash"></div>
+  </div>
+  
+  <h1 style="color: purple;" class="head">POTS AND PANS</h1>
+  <img class="image" src="pot.png" height="70" height="20" alt="">
+  <img class="image2" src="pot.png" height="30" height="10" alt="">
+  <img class="image3" src="pot.png" height="50" height="10" alt="">
+  <div class="block">
+  <div class="butBlock">
+      <h2>HOW TO PLAY</h2>
+      <p><b>Welcome to an AlivexemTech Game of POTS and PANS.</b> This is a game against A.I (artificial Intelligence) where the A.I picks four random numbers in the range <b>0 - 20</b>. Your aim is to guess the numbers and arrange the numbers accordingly using the hint provided.</p>
+      <p>The hint provided is the range of A.I selection (smallest to Largest Number) and most importantly <b>POTS AND PANS</b>.</p>
+      <p><b>POT</b> means one of the numbers you guessed is correct and placed in the right order, <b>PAN</b> means you guessed a number right but wrongly placed. For example: <br><br><br> <stan style="color: red; font-size: 23px; font-weight: bold; background-color: black;">A.I SELECTS <b>1-2-3-4</b></stan> <br><br> <stan style="color: lime; font-size: 23px; font-weight: bold; background-color: black;">AND YOUR GUESS IS <b>1-4-2-8</b>.</stan> <br><br><br> The game response will be <b>1 POT and 2 PANS</b> because 1 is correct and rightly placed which makes it a <b>POT</b>, 4 and 2 are also correct but wrongly placed which results in <b>PAN</b>. ENOUGH TALK... CHECK IT OUT YOURSELF!</p>
+      <button id="btn" style="margin-top: 20px;">PROCEED TO PLAY</button>
+      <script>
+          let button = document.getElementById("btn")
+          button.addEventListener("click",() => {
+              window.location.href = "page2.html"
+          })
+      </script>
+  </div>
+  </div>
+</body>
+</html>

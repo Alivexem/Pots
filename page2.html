@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alive Game Pots and Pans</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carton+Slab&display=swap">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+    
+  body {
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Carton Slab', serif;
+  }
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: purple; /* Light purple background color */
+    z-index: -1; /* Ensure the background is behind other content */
+  }
+  .slash-container {
+    margin-top: -20px;
+    overflow: hidden;
+     z-index: 1;
+  }
+  .slash {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom right, cyan, pink);
+    transform-origin: 0 100%;
+    z-index: 1;
+  }
+  .slash:nth-child(odd) {
+    transform: rotate(45deg);
+  }
+  .slash:nth-child(even) {
+    transform: rotate(-45deg);
+  }
+  .slash:nth-child(1) {
+    top: -100px;
+    left: -100px;
+  }
+  .slash:nth-child(2) {
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    
+  }
+  
+  
+  .head{
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      text-shadow: 1px 1px 1px cyan;
+      font-size: 40px;
+      margin-bottom: 60px;
+      margin-top: 40px;
+      font-family: 'Roboto Slab', serif;
+  }
+  .image{
+      position: relative;
+      z-index: 2;
+      top: 23%;
+      left: 5%;
+  }
+  .image2{
+      position: absolute;
+      z-index: 2;
+      top: 10%;
+      left: 27%;
+  }
+  .image3{
+      position: absolute;
+      z-index: 2;
+      top: 2%;
+      left: 67%;
+  }
+  h1, h2, p, .inputs, .block, button, .butBlock, .custom-shape, i{
+      position: relative;
+      z-index: 3;
+  }
+  .inputs{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 7px;
+      margin-top: 60px;
+      margin-bottom: 30px;
+  }
+  .block{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 55px;
+      width: 55px;
+      border-radius: 17px 17px 0 0;
+      border: 1px solid black;
+      background-color: gray;
+      border: 2px solid black;
+      font-size: 27px;
+      font-weight: bold;
+      text-align: center;
+      color: purple;
+  }
+  .butBlock{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  .start{
+      margin-top: 20px;
+      height: 40px;
+      width: 120px;
+      border: 1.5px solid black;
+      font-weight: bold;
+      font-size: 22px;
+      color: black;
+      background-color: cyan;
+      border-radius: 15%;
+      
+  }
+  .custom-shape{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: indigo;
+      height: 200px;
+      width: 90%;
+      border-radius: 0 0 20px 20px;
+      border: 2px solid white;
+      padding: 10px;
+  }
+  .coverdiv{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  i{
+      font-size: 50px;
+  }
+  h1{
+      font-size: 24px;
+      color: black;
+      
+  }
+  @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+  }
+
+  #icon {
+    display: inline-block;
+    animation: shake 0.5s ease-in-out infinite;
+  }
+  button:active{
+      background-color: gray;
+  }
+   i:active{
+      color:gray;
+  }
+</style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="slash-container">
+    <div class="slash"></div>
+    <div id="goat" class="slash"></div>
+  
+  </div>
+  
+  <h1 style="color: indigo; font-weight: bold;" class="head">POTS AND PANS</h1>
+  <img class="image" src="pot.png" height="70" height="20" alt="">
+  <img class="image2" src="pot.png" height="30" height="10" alt="">
+  <img class="image3" src="pot.png" height="50" height="10" alt="">
+  
+  <div class="inputs">
+      <input type="number" class="block" value="" oninput="this.value = this.value.slice(0, 2)">
+      <input type="number" class="block" value="" oninput="this.value = this.value.slice(0, 2)">
+      <input type="number" class="block" value="" oninput="this.value = this.value.slice(0, 2)">
+      <input type="number" class="block" value="" oninput="this.value = this.value.slice(0, 2)">
+  </div>
+  <div class="coverdiv">
+      
+ 
+ <div class="custom-shape">
+     
+     <div id="scores" style="display: none;">
+         <h3 style="color: snow; text-align: center;">SCORE: <span style="font-size: 23px; color: yellow;" id="scorer">0</span></h3>
+     <h3 style="color: snow;">HINT: Each Digit Range <span id="low"></span> - <span id="high"></span> </h3>     
+     </div>
+     <h2 id="alert" style="text-align: center; color: yellow; display: none;"><span id="potter">no </span> POT and <span id="panner">no</span> PAN!</h2>
+     <h3 id="message" style="text-align: center; color: yellow;">DIGITS SELECTED, GUESS THEM IF YOU CAN. CLICK <span style="color:cyan">START</span> TO BEGIN!</h3>
+     <h3 id="congrats" style="text-align: center; color: yellow; display: none;">YOU WON... CONGRATULATIONS!</h3>
+     
+ </div>
+ </div>
+  
+  <div class="butBlock">
+      <button id="start" class="start">start</button>
+      <button id="refresh" class="start" style="background-color: orange; color: white;">reset</button>
+  </div>
+  <style>
+     
+      #icon{
+          pointer-events: auto;
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          right: 2%;
+          top: 15%;
+          margin-top: 50px;
+          margin-bottom: 30px;
+          pointer-events: auto;
+          
+      }
+      i{
+          margin: 1px 13px 30px 0;
+      }
+  </style>
+  <a href="index.html">
+      <i id="icon" style="color: lime; font-size: 66px;" class="fas fa-lightbulb"></i>
+    
+   </a>
+    
+ 
+</body>
+<script src="app.js"></script>
+</html>
